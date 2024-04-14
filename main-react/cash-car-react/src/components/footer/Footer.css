@@ -1,0 +1,46 @@
+.Footer-main {
+    width: 100%;
+    background-color: #1a242a;
+    color: whitesmoke;
+    height: 100px;
+    min-height: fit-content;
+}
+
+.Footer {
+    background-color: #1a242a;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 30px;
+    padding-right: 30px;
+    column-gap: 20px;
+    min-height: fit-content;
+}
+
+.footer-log a {
+    color: whitesmoke;
+    font-size: 30px;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-info strong {
+    font-size: 20px;
+}
+
+.footer-phone a {
+    color: whitesmoke;
+    font-size: 26px;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 830px) {
+    .Footer {
+        height: fit-content;
+    }
+}

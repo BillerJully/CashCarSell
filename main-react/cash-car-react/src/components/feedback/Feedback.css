@@ -1,0 +1,97 @@
+.feedback-container {
+    padding: 0 50px 0;
+    margin-bottom: 40px;
+}
+
+.feedback-container h2 {
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 219%;
+}
+
+.feedback-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.phone-feedback {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.phone-feedback a {
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.phone-feedback img {
+    width: 50px; /* задайте требуемые размеры для иконки телефона */
+    margin-right: 10px;
+}
+
+.feedback-text {
+    margin-bottom: 15px;
+}
+
+.feedback-text h3 {
+    font-size: 24px;
+}
+
+.feedback-input {
+    display: flex; /*Изменение: изменим направление flex контейнера*/
+    align-items: center;
+    justify-content: center; /* Изменение: добавим выравнивание по горизонтали */
+    flex-wrap: wrap; /* Изменение: добавим перенос элементов при нехватке места */
+    gap: 10px; /* Изменено: добавим отступы между элементами */
+}
+
+.input-box input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.feedback-submit {
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #232323;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 20px;
+}
+
+.feedback-submit:hover {
+    background-color: #e8be17;
+}
+
+@media (max-width: 730px) {
+    .feedback-input {
+        display: block;
+        padding: 30px;
+    }
+
+    .input-box {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 484px) {
+    .phone-feedback img {
+        width: 40px;
+    }
+    .phone-feedback a {
+        font-size: 28px;
+    }
+
+    .feedback-text h3 {
+        font-size: 20px;
+    }
+}
