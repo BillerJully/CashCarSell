@@ -8,7 +8,7 @@ function Footer() {
                     <a href="/">ColoradoQuickCashCars</a>
                 </div>
                 <div className="footer-info">
-                    <strong>© All rights reserved</strong>
+                    {/* <strong>© All rights reserved</strong> */}
                 </div>
                 <div className="footer-phone">
                     <a href="/" className="our-phone">

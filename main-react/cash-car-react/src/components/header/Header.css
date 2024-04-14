@@ -5,7 +5,6 @@
 }
 /* HEADER */
 .main-header {
-    /* margin: 0 50px 0 50px; */
     background-color: white;
     height: 110px;
     min-height: fit-content;
@@ -13,15 +12,12 @@
     align-items: center;
     width: 100%;
     justify-content: center;
-    /* margin-bottom: 10px;
-    overflow: hidden; */
 }
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     column-gap: 50px;
-    /* margin: 0 50px 0 50px; */
     padding-inline: 50px;
     min-height: fit-content;
 }
@@ -72,6 +68,7 @@
 .header-donate {
     display: flex;
     justify-content: center;
+    margin-left: 60px;
     align-items: center;
     border: 1px solid #ffcc00;
     border-radius: 8px;
