@@ -2,6 +2,7 @@ import './Steps.css'
 import stepOne from '../../staticfiles/steps/step-1.png'
 import stepTwo from '../../staticfiles/steps/step-2.png'
 import stepThree from '../../staticfiles/steps/step-3.png'
+import ellipse from '../../staticfiles/steps/Ellipse.png'
 
 function Steps() {
     return (
@@ -12,30 +13,36 @@ function Steps() {
                     <img src={stepOne} alt="" />
                     <h4>Get an Offer in Minutes</h4>
                     <p>
-                        <span></span>We can buy your car within 30 minutes
+                        <img src={ellipse} alt="" />
+                        We can buy your car within 30 minutes
                     </p>
                     <p>
-                        <span></span>Quick car evaluation without the hassle
+                        <img src={ellipse} alt="" />
+                        Quick car evaluation without the hassle
                     </p>
                 </div>
                 <div class="step-block">
                     <img src={stepTwo} alt="" />
                     <h4>We Come to You</h4>
                     <p>
-                        <span></span>You don't have to pay for towing
+                        <img src={ellipse} alt="" />
+                        You don't have to pay for towing
                     </p>
                     <p>
-                        <span></span>We take care of all towing things
+                        <img src={ellipse} alt="" />
+                        We take care of all towing things
                     </p>
                 </div>
                 <div class="step-block">
                     <img src={stepThree} alt="" />
                     <h4>Get Paid Today</h4>
                     <p>
-                        <span></span>Immediate payment and cash in hand
+                        <img src={ellipse} alt="" />
+                        Immediate payment and cash in hand
                     </p>
                     <p>
-                        <span></span>Your offer is always quaranteed
+                        <img src={ellipse} alt="" />
+                        Your offer is always quaranteed
                     </p>
                 </div>
             </div>
