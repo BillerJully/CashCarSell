@@ -3,6 +3,7 @@ import Steps from './components/MainSteps/Steps'
 import Yellowbox from './components/yellowbox/Yellowbox'
 import Footer from './components/footer/Footer'
 import Benefits from './components/offerbenefits/Benefits'
+import Feedback from './components/feedback/Feedback'
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
             <Steps />
             <Yellowbox />
             <Benefits />
+            <Feedback />
             <Footer />
         </div>
     )
