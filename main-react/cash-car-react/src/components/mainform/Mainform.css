@@ -75,6 +75,15 @@
     margin-left: auto;
 }
 
+.error1 {
+    font-size: 20px;
+    color: red;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+}
 .submit-btn {
     display: block;
     width: 100%;
