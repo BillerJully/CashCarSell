@@ -1,0 +1,114 @@
+@media screen {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+/* HEADER */
+.main-header {
+    /* margin: 0 50px 0 50px; */
+    background-color: white;
+    height: 110px;
+    min-height: fit-content;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    /* margin-bottom: 10px;
+    overflow: hidden; */
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+    /* margin: 0 50px 0 50px; */
+    padding-inline: 50px;
+    min-height: fit-content;
+}
+
+.header-logo {
+    font-weight: 600;
+    font-size: 30px;
+    margin-right: 40px;
+}
+
+.header-menu {
+    margin-right: 40px;
+}
+
+.header-menu-list {
+    display: flex;
+    column-gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* FORM CONTAINER */
+
+.header-menu-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 18px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    /* background-color: red; */
+}
+
+.header-actions {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 16px;
+}
+
+.our-phone {
+    font-weight: 600;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.header-donate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffcc00;
+    border-radius: 8px;
+    color: #ffcc00;
+    background-color: white;
+    font-weight: 500;
+    font-size: 22px;
+    flex-shrink: 0;
+    height: 50px;
+    width: 140px;
+}
+
+@media (max-width: 1388px) {
+    .main-header {
+        min-height: fit-content;
+    }
+
+    .header {
+        flex-wrap: wrap;
+        padding-top: 28px;
+        background-color: white;
+        min-height: fit-content;
+        row-gap: 20px;
+        padding-inline: 16px;
+        margin-bottom: 20px;
+        /* box-sizing: border-box; */
+    }
+
+    .header-menu {
+        order: 1;
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 826px) {
+    .header {
+        padding-top: 60px;
+        box-sizing: border-box;
+    }
+}
