@@ -7,6 +7,12 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-VariableFont_wght.ttf') format('ttf');
+    font-display: swap;
+}
+
 /**
     Убираем внутренние отступы слева тегам списков,
     у которых есть атрибут class
@@ -109,6 +115,7 @@ body {
       Унифицированный интерлиньяж
      */
     line-height: 1.5;
+    font-family: 'Montserrat';
 }
 
 /**
