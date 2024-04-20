@@ -148,7 +148,7 @@ function Mainform() {
                 throw new Error(`${request.status} : ${request.statusText}`)
         } catch (error) {
             console.log(
-                `Возникла ошибка при отправке запроса: ${error.message}`
+                `Failed to send request: ${error.message}`
             )
         }
     }
