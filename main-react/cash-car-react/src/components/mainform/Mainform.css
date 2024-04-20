@@ -71,22 +71,35 @@
     margin-bottom: 10px;
 }
 
-.input-group:last-child {
-    margin-left: auto;
+.input-group-button {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
 }
 
-.error1 {
-    font-size: 20px;
+.text-inside {
+    width: 45%;
+}
+
+.input-group-button a {
+    text-decoration: underline;
+}
+
+.ERROR {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
     color: red;
-    position: absolute;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 400px;
+    font-weight: 500;
+    width: 300px;
 }
 .submit-btn {
     display: block;
-    width: 100%;
+    height: 60px;
+    width: 50%;
     padding: 10px;
     background-color: #ffcc00;
     color: rgb(19, 2, 2);
@@ -178,5 +191,12 @@
     .main-offer-form button {
         width: 80%; /* Устанавливаем ширину кнопки */
         margin: 10px auto; /* Центрируем кнопку по горизонтали */
+    }
+
+    .input-group-button {
+        display: block;
+    }
+    .input-group-button div {
+        width: 100%;
     }
 }

@@ -2,7 +2,7 @@ import './Benefits.css'
 
 function Benefits() {
     return (
-        <section className="benefits-container" id="benefits">
+        <section className="benefits-container" id="BENEFITS">
             <h2>Why Are We The Best Car Buyer?</h2>
             <div className="benefits-block">
                 <div className="benefit-block yel">
