@@ -8,8 +8,8 @@ function Steps() {
     return (
         <section className="steps-container" id="STEPS">
             <h2>The Easiest Way To Get Cash For Your Car</h2>
-            <div class="steps-block">
-                <div class="step-block">
+            <div className="steps-block">
+                <div className="step-block">
                     <img src={stepOne} alt="" />
                     <h4>Get an Offer in Minutes</h4>
                     <p>
@@ -21,7 +21,7 @@ function Steps() {
                         Quick car evaluation without the hassle
                     </p>
                 </div>
-                <div class="step-block">
+                <div className="step-block">
                     <img src={stepTwo} alt="" />
                     <h4>We Come to You</h4>
                     <p>
@@ -33,7 +33,7 @@ function Steps() {
                         We take care of all towing things
                     </p>
                 </div>
-                <div class="step-block">
+                <div className="step-block">
                     <img src={stepThree} alt="" />
                     <h4>Get Paid Today</h4>
                     <p>
