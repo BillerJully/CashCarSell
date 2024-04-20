@@ -40,4 +40,6 @@ module.exports.sendMsg = (req, res) => {
             }
         }
     )
+
+    return res;
 }
