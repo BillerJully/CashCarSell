@@ -4,7 +4,13 @@ const cors = require('cors')
 const index = require('./routes/index')
 const app = express()
 
-const whitelist = ['http://localhost:80'];
+const frontend_allowed = process.env.FRONTEND_ALLOWED_HOST
+const whitelist = [
+  `http://${frontend_allowed}:80`,
+  `http://${frontend_allowed}`,
+  `https://${frontend_allowed}:80`,
+  `https://${frontend_allowed}`,
+];
 
 const corsOptions = {
   origin: function (origin, callback) {

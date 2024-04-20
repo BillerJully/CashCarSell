@@ -30,7 +30,7 @@ function Mainform() {
         setYear(e.target.value)
         const re = /^(19|20)\d{2}$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setYearError('Некоректный год')
+            setYearError('Year invalid')
         } else {
             setYearError('')
         }
@@ -40,7 +40,7 @@ function Mainform() {
         setMark(e.target.value)
         const re = /^([а-я]{1}[а-яё]{3,23}|[a-z]{1}[a-z]{3,23})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setMarkError('Некоректное марка')
+            setMarkError('Mark invalid')
         } else {
             setMarkError('')
         }
@@ -50,7 +50,7 @@ function Mainform() {
         setModel(e.target.value)
         const re = /^([а-я]{1}[а-яё]{3,23}|[a-z]{1}[a-z]{3,23})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setModelError('Некоректное модель')
+            setModelError('Model invalid')
         } else {
             setModelError('')
         }
@@ -60,7 +60,7 @@ function Mainform() {
         setSubmodel(e.target.value)
         const re = /^([а-я]{1}[а-яё]{3,23}|[a-z]{1}[a-z]{3,23})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setSubmodelError('Некоректное субмодель')
+            setSubmodelError('Submodel invalid')
         } else {
             setSubmodelError('')
         }
@@ -70,7 +70,7 @@ function Mainform() {
         setZipcode(e.target.value)
         const re = /^\d{5}(?:[-\s]\d{4})?$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setZipcodeError('Некоректное код')
+            setZipcodeError('Zip invalid')
         } else {
             setZipcodeError('')
         }
@@ -80,7 +80,7 @@ function Mainform() {
         setPhone(e.target.value)
         const re = /^(8|\+7)?-?(\d{3})-?(\d{3})-?(\d{2})-?(\d{2})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setPhoneError('Некоректный номер телефона')
+            setPhoneError('Phone invalid')
         } else {
             setPhoneError('')
         }
@@ -113,7 +113,8 @@ function Mainform() {
         debugger
         try {
             e.preventDefault()
-            let request = await fetch('http://localhost:5000/telegram', {
+            let url = process.env.BACKEND_URL;
+            let request = await fetch(`${url}/telegram`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -147,7 +148,7 @@ function Mainform() {
                 throw new Error(`${request.status} : ${request.statusText}`)
         } catch (error) {
             console.log(
-                `Возникла ошибка при отправке запроса: ${error.message}`
+                `Failed to send request: ${error.message}`
             )
         }
     }
