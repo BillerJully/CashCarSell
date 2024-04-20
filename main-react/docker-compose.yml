@@ -5,10 +5,14 @@ services:
     build: ./cash-car-react
     depends_on:
       - express
+    environment:
+      - BACKEND_URL=http://127.0.0.1:5000
     ports:
       - '80:80'
 
   express:
     build: ./server
+    environment:
+      - FRONTEND_ALLOWED_HOST=http://127.0.0.1
     ports:
       - '5000:5000'
