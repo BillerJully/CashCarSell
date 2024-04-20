@@ -19,7 +19,7 @@ function Benefits() {
                 <div className="benefit-block yel">
                     <h4>Get Paid On The Spot</h4>
                     <p>
-                        We will do a quick inspection, hand you a check, and tow
+                        We will do a quick inspection, hand you cash, and tow
                         that ride away
                     </p>
                 </div>

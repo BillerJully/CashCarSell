@@ -240,7 +240,7 @@ function Mainform() {
                                 <label htmlFor="input5">Zip code</label>
                                 <input
                                     type="text"
-                                    placeholder="Your adress zip code"
+                                    placeholder="Your address zip code"
                                     value={zipcode}
                                     onChange={changeZipcode}
                                     onBlur={(e) => blurHandler(e)}
