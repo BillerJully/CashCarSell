@@ -110,10 +110,9 @@ function Mainform() {
     ])
 
     const submitData = async (e) => {
-        debugger
         try {
             e.preventDefault()
-            let url = process.env.BACKEND_URL;
+            let url = "http://192.168.1.226:5000";
             let request = await fetch(`${url}/telegram`, {
                 method: 'POST',
                 headers: {
