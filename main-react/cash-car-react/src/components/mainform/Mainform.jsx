@@ -1,4 +1,5 @@
 import './Mainform.css'
+import { toast } from 'react-toastify'
 import { useEffect, useState } from 'react'
 
 function Mainform() {
@@ -16,21 +17,20 @@ function Mainform() {
     const [zipcodeDirty, setZipcodeDirty] = useState(false)
     const [phoneDirty, setPhoneDirty] = useState(false)
 
-    const [yearError, setYearError] = useState('Fill')
-    const [markError, setMarkError] = useState('Fill')
-    const [modelError, setModelError] = useState('Fill')
-    const [submodelError, setSubmodelError] = useState('Fill')
-    const [zipcodeError, setZipcodeError] = useState('Fill')
-    const [phoneError, setPhoneError] = useState('Fill')
-
-    // НУЖНА валидация значений!
+    const [yearError, setYearError] = useState('year can`t be empty')
+    const [markError, setMarkError] = useState('mark can`t be empty')
+    const [modelError, setModelError] = useState('model can`t be empty')
+    const [submodelError, setSubmodelError] = useState(
+        'submodel can`t be empty'
+    )
+    const [zipcodeError, setZipcodeError] = useState('zipcode can`t be empty')
+    const [phoneError, setPhoneError] = useState('phone can`t be empty')
 
     const changeYear = (e) => {
-        debugger
         setYear(e.target.value)
         const re = /^(19|20)\d{2}$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setYearError('Некоректное год')
+            setYearError('Некоректный год')
         } else {
             setYearError('')
         }
@@ -119,21 +119,36 @@ function Mainform() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    "year": year,
-                    "mark": mark,
-                    "model": model,
-                    "submodel": submodel,
-                    "zipcode": zipcode,
-                    "phone": phone,
+                    year: year,
+                    mark: mark,
+                    model: model,
+                    submodel: submodel,
+                    zipcode: zipcode,
+                    phone: phone,
                 }),
             })
             // .then((response) => response.json())
             // .then((result) => alert(result.response.msg))
+            setYear('')
+            setMark('')
+            setModel('')
+            setSubmodel('')
+            setZipcode('')
+            setPhone('')
+            setYearDirty(false)
+            setMarkDirty(false)
+            setModelDirty(false)
+            setSubmodelDirty(false)
+            setZipcodeDirty(false)
+            setPhoneDirty(false)
+            setFormValid(false)
 
-            if (!request.ok) throw new Error(`${request.status} : ${request.statusText}`)
-
+            if (!request.ok)
+                throw new Error(`${request.status} : ${request.statusText}`)
         } catch (error) {
-            console.log(`Возникла ошибка при отправке запроса: ${error.message}`)
+            console.log(
+                `Возникла ошибка при отправке запроса: ${error.message}`
+            )
         }
     }
 
@@ -142,7 +157,7 @@ function Mainform() {
             case 'year':
                 setYearDirty(true)
                 break
-            case 'mark':
+            case 'make':
                 setMarkDirty(true)
                 break
             case 'model':
@@ -162,7 +177,7 @@ function Mainform() {
     }
 
     return (
-        <section className="main-form">
+        <section className="main-form" id="MAINFORM">
             <div className="main-form-container">
                 <div className="description-container">
                     <h1>Sell Your Car the Easy Way For Cash</h1>
@@ -174,11 +189,26 @@ function Mainform() {
                 <div className="main-form-container-right">
                     <div className="form-container">
                         <h3>Get Started!</h3>
+                        {yearDirty && yearError && (
+                            <div className="ERROR">{yearError}</div>
+                        )}
+                        {markDirty && markError && (
+                            <div className="ERROR">{markError}</div>
+                        )}
+                        {modelDirty && modelError && (
+                            <div className="ERROR">{modelError}</div>
+                        )}
+                        {submodelDirty && submodelError && (
+                            <div className="ERROR">{submodelError}</div>
+                        )}
+                        {zipcodeDirty && zipcodeError && (
+                            <div className="ERROR">{zipcodeError}</div>
+                        )}
+                        {phoneDirty && phoneError && (
+                            <div className="ERROR">{phoneError}</div>
+                        )}
                         <form className="main-offer-form">
                             <div className="input-group">
-                                {yearDirty && yearError && (
-                                    <div className="error1">{yearError}</div>
-                                )}
                                 <label htmlFor="input">Year</label>
                                 <input
                                     type="text"
@@ -190,9 +220,6 @@ function Mainform() {
                                 />
                             </div>
                             <div className="input-group">
-                                {markDirty && markError && (
-                                    <div className="error1">{markError}</div>
-                                )}
                                 <label htmlFor="input2">make</label>
                                 <input
                                     type="text"
@@ -204,9 +231,6 @@ function Mainform() {
                                 />
                             </div>
                             <div className="input-group">
-                                {modelDirty && modelError && (
-                                    <div className="error1">{modelError}</div>
-                                )}
                                 <label htmlFor="input3">Model</label>
                                 <input
                                     type="text"
@@ -218,12 +242,9 @@ function Mainform() {
                                 />
                             </div>
                             <div className="input-group">
-                                {submodelDirty && submodelError && (
-                                    <div className="error1">
-                                        {submodelError}
-                                    </div>
-                                )}
-                                <label htmlFor="input4">Submodel</label>
+                                <label htmlFor="input4">
+                                    Submodel (If known)
+                                </label>
                                 <input
                                     type="text"
                                     placeholder="Your car submodel"
@@ -234,9 +255,6 @@ function Mainform() {
                                 />
                             </div>
                             <div className="input-group">
-                                {zipcodeDirty && zipcodeError && (
-                                    <div className="error1">{zipcodeError}</div>
-                                )}
                                 <label htmlFor="input5">Zip code</label>
                                 <input
                                     type="text"
@@ -248,9 +266,6 @@ function Mainform() {
                                 />
                             </div>
                             <div className="input-group">
-                                {phoneDirty && phoneError && (
-                                    <div className="error1">{phoneError}</div>
-                                )}
                                 <label htmlFor="input6">Phone number</label>
                                 <input
                                     type="text"
@@ -261,7 +276,14 @@ function Mainform() {
                                     name="phone"
                                 />
                             </div>
-                            <div className="input-group">
+                            <div className="input-group-button">
+                                <div className="text-inside">
+                                    <h5>
+                                        By submitting, you acknowledge our{' '}
+                                        <a href="/policy">privacy policy</a>
+                                    </h5>
+                                </div>
+
                                 <button
                                     disabled={!formValid}
                                     type="submit"
