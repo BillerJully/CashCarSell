@@ -1,16 +1,10 @@
 version: '3'
 
-# networks:
-#   express-react:
-#     driver: bridge
-
 services:
   react:
     build: ./cash-car-react
     depends_on:
       - express
-    # networks:
-    #   - express-react
     ports:
       - '80:80'
 
@@ -18,5 +12,3 @@ services:
     build: ./server
     ports:
       - '5000:5000'
-    # networks:
-    #   - express-react
