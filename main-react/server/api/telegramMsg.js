@@ -20,19 +20,18 @@ module.exports.sendMsg = (req, res) => {
     message = encodeURI(message)
 
     http.post(
-        `https://api.telegram.org/bot${config.telegram.token}/sendMessage?chat_id=${config.telegram.chat}&parse_mode=html&text=${message}`
-    ),
+        `https://api.telegram.org/bot${config.telegram.token}/sendMessage?chat_id=${config.telegram.chat}&parse_mode=html&text=${message}`,
         function (err, response, body) {
-            console.log('error:', err),
-                console.log('response:', response),
-                console.log('body:', body)
-
+            console.log('error:', err);
+            console.log('response:', response);
+            console.log('body:', body);
+            
             if (response.statusCode === 200) {
                 res.status(200).json({
                     status: 'ok',
                     message: 'Successful send!',
                 })
-                if (response.statusCode !== 200) {
+            if (response.statusCode !== 200) {
                     res.status(400).json({
                         status: 'error',
                         message: 'some error',
@@ -40,4 +39,5 @@ module.exports.sendMsg = (req, res) => {
                 }
             }
         }
+    )
 }

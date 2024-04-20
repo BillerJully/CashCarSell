@@ -26,6 +26,7 @@ function Mainform() {
     // НУЖНА валидация значений!
 
     const changeYear = (e) => {
+        debugger
         setYear(e.target.value)
         const re = /^(19|20)\d{2}$/
         if (!re.test(String(e.target.value).toLowerCase())) {
@@ -108,24 +109,32 @@ function Mainform() {
         phoneError,
     ])
 
-    const submitData = (e) => {
-        e.preventDefault()
-        fetch('http://localhost:5000/telegram', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                year,
-                mark,
-                model,
-                submodel,
-                zipcode,
-                phone,
-            }),
-        })
-            .then((response) => response.json())
-            .then((result) => alert(result.response.msg))
+    const submitData = async (e) => {
+        debugger
+        try {
+            e.preventDefault()
+            let request = await fetch('http://localhost:5000/telegram', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "year": year,
+                    "mark": mark,
+                    "model": model,
+                    "submodel": submodel,
+                    "zipcode": zipcode,
+                    "phone": phone,
+                }),
+            })
+            // .then((response) => response.json())
+            // .then((result) => alert(result.response.msg))
+
+            if (!request.ok) throw new Error(`${request.status} : ${request.statusText}`)
+
+        } catch (error) {
+            console.log(`Возникла ошибка при отправке запроса: ${error.message}`)
+        }
     }
 
     const blurHandler = (e) => {
@@ -231,7 +240,7 @@ function Mainform() {
                                 <label htmlFor="input5">Zip code</label>
                                 <input
                                     type="text"
-                                    placeholder="Your adress zip code"
+                                    placeholder="Your address zip code"
                                     value={zipcode}
                                     onChange={changeZipcode}
                                     onBlur={(e) => blurHandler(e)}
