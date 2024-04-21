@@ -18,24 +18,27 @@
 .extra-input-block {
     border-radius: 12px;
     padding: 20px;
-    height: 80px;
+    /* height: 80px; */
     margin-bottom: 30px;
-    box-shadow: 0px 8px 16px 0px rgba(41, 41, 41, 0.04), 0px 0px 6px 0px rgba(41, 41, 41, 0.04);
-    display: flex;
-    align-content: space-between;
-    flex-direction: column;
-    justify-content: center;
+    box-shadow: 0px 8px 16px 0px rgba(41, 41, 41, 0.04),
+        0px 0px 6px 0px rgba(41, 41, 41, 0.04);
     background-color: #ffcc00;
+    display: flex;
+    row-gap: 40px;
+    justify-content: space-between;
+    /* width: 800px; */
 }
-.extra-input-block input, .extra-input-block select{
-    /* margin-left: 40px; */
+.extra-input-block input,
+.extra-input-block select {
+    margin-left: 40px;
     border-radius: 8px;
     height: 50px;
     box-sizing: border-box;
     width: 400px;
 }
 
-.extra-form input, select {
+.extra-form input,
+select {
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #ccc;
@@ -43,4 +46,126 @@
     box-sizing: border-box;
     /* width: 100%; */
     font-size: 16px;
-  }
+}
+
+.extra-button {
+    display: block;
+    height: 60px;
+    width: 30%;
+    padding: 10px;
+    background-color: #ffcc00;
+    color: rgb(19, 2, 2);
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+@media (max-width: 1300px) {
+    .extra-form {
+        width: 1000px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .extra-form {
+        width: 820px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 870px) {
+    .extra-form {
+        width: 750px;
+        margin-top: 50px;
+    }
+    .extra-input-block input,
+    .extra-input-block select {
+        margin-left: 40px;
+        border-radius: 8px;
+        height: 50px;
+        box-sizing: border-box;
+        width: 250px;
+    }
+}
+@media (max-width: 750px) {
+    .extra-form {
+        width: 600px;
+        margin-top: 50px;
+    }
+    .extra-input-block input,
+    .extra-input-block select {
+        margin-left: 40px;
+        border-radius: 8px;
+        height: 50px;
+        box-sizing: border-box;
+        width: 80%;
+    }
+    .extra-input-block {
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        row-gap: 40px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 650px) {
+    .extra-form {
+        width: 450px;
+        margin-top: 50px;
+    }
+    .extra-input-block input,
+    .extra-input-block select {
+        margin-left: 40px;
+        border-radius: 8px;
+        height: 50px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 470px) {
+    .extra-form {
+        width: 360px;
+        margin-top: 50px;
+    }
+    .extra-input-block input,
+    .extra-input-block select {
+        margin-left: 40px;
+        border-radius: 8px;
+        height: 50px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 440px) {
+    .extra-form {
+        width: 340px;
+        margin-top: 50px;
+    }
+    .extra-input-block input,
+    .extra-input-block select {
+        margin-left: 40px;
+        border-radius: 8px;
+        height: 50px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 360px) {
+    .extra-form {
+        width: 320px;
+        margin-top: 50px;
+    }
+    .extra-input-block input,
+    .extra-input-block select {
+        margin-left: 40px;
+        border-radius: 8px;
+        height: 50px;
+        box-sizing: border-box;
+    }
+}

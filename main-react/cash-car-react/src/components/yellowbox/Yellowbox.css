@@ -66,12 +66,8 @@
     }
 }
 
-@media (max-width: 360px) {
-    .yellow-box {
-        max-width: fit-content;
-    }
+@media (max-width: 390px) {
     .yellow-box p {
-  
         padding-left: 10px;
         padding-right: 10px;
         width: 340px;
@@ -80,8 +76,10 @@
 
     .yellow-box h3 {
         font-size: 20px;
+        width: 340px;
     }
     .yellow-box h3:last-child {
         font-size: 18px;
+        width: 340px;
     }
-} 
+}

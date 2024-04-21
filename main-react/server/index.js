@@ -10,6 +10,7 @@ const whitelist = [
   `http://${frontend_allowed}`,
   `https://${frontend_allowed}:80`,
   `https://${frontend_allowed}`,
+  `http://localhost:3000`
 ];
 
 const corsOptions = {

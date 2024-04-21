@@ -23,7 +23,6 @@
 }
 .logo-car {
     height: 60px;
-
 }
 .header-logo {
     font-weight: 600;
@@ -84,6 +83,9 @@
     width: 140px;
 }
 
+.burger-menu {
+    display: none;
+}
 @media (max-width: 1388px) {
     .main-header {
         min-height: fit-content;
@@ -97,7 +99,6 @@
         row-gap: 20px;
         padding-inline: 16px;
         margin-bottom: 20px;
-        /* box-sizing: border-box; */
     }
 
     .header-menu {
@@ -111,13 +112,10 @@
         padding-top: 60px;
         box-sizing: border-box;
     }
- 
 }
-
 
 @media (max-width: 456px) {
     .header-logo {
-        /* display: none; */
     }
     .header-menu {
         display: none;
@@ -126,6 +124,30 @@
         display: none;
     }
     .our-phone {
-        font-size: 32px
     }
 }
+
+@media (max-width: 456px) {
+    .main-header {
+        width: 100%;
+    }
+
+    .header-actions {
+        font-size: 20px;
+    }
+}
+
+/* @media (max-width: 910px) {
+    .burger-menu {
+        display: block;
+        position: absolute;
+        right: 15px;
+        cursor: pointer;
+        z-index: 10;
+        top: 20px;
+    }
+
+    .header-menu {
+        display: flex;
+    }
+} */

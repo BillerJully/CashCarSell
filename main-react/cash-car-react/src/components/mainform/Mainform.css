@@ -96,10 +96,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     color: red;
     font-weight: 500;
-    width: 300px;
+    /* width: 300px; */
 }
 .submit-btn {
     display: block;
@@ -209,19 +209,20 @@
         color: white;
         font-size: 32px;
         font-weight: 500;
-        width: 380px;
+        width: 360px;
     }
 
     .description-container h3 {
         color: white;
         font-size: 13px;
         font-weight: 500;
-        width: 380px;
+        width: 360px;
     }
     .description-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 370px;
     }
 }

@@ -11,7 +11,7 @@ function Footer() {
                     {/* <strong>© All rights reserved</strong> */}
                 </div>
                 <div className="footer-phone">
-                    <a href="/" className="our-phone">
+                    <a href="tel:+17203541390" className="our-phone">
                         +1 (720) 354-1390
                     </a>
                 </div>

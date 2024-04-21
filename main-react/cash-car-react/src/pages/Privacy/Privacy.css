@@ -4,6 +4,55 @@
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    width: 1300px;
+    width: 1200px;
+    /* margin: 20px; */
     margin-bottom: 60px;
+}
+
+@media (max-width: 1250px) {
+    .privacy-content {
+        width: 1000px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .privacy-content {
+        width: 800px;
+    }
+}
+
+@media (max-width: 900px) {
+    .privacy-content {
+        width: 750px;
+    }
+}
+
+@media (max-width: 820px) {
+    .privacy-content {
+        width: 700px;
+    }
+}
+
+@media (max-width: 760px) {
+    .privacy-content {
+        width: 580px;
+    }
+}
+
+@media (max-width: 640px) {
+    .privacy-content {
+        width: 480px;
+    }
+}
+
+@media (max-width: 540px) {
+    .privacy-content {
+        width: 400px;
+    }
+}
+
+@media (max-width: 460px) {
+    .privacy-content {
+        width: 300px;
+    }
 }

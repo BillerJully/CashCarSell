@@ -38,7 +38,7 @@ function Mainform() {
 
     const changeMark = (e) => {
         setMark(e.target.value)
-        const re = /^([а-я]{1}[а-яё]{3,23}|[a-z]{1}[a-z]{3,23})$/
+        const re = /^[а-яёa-z0-9\s]{1,}$/i
         if (!re.test(String(e.target.value).toLowerCase())) {
             setMarkError('Error in make input')
         } else {
@@ -48,7 +48,7 @@ function Mainform() {
 
     const changeModel = (e) => {
         setModel(e.target.value)
-        const re = /^([а-я]{1}[а-яё]{3,23}|[a-z]{1}[a-z]{3,23})$/
+        const re = /^[а-яёa-z0-9\s]{1,}$/i
         if (!re.test(String(e.target.value).toLowerCase())) {
             setModelError('Error in model input')
         } else {
@@ -58,7 +58,7 @@ function Mainform() {
 
     const changeSubmodel = (e) => {
         setSubmodel(e.target.value)
-        const re = /^([а-я]{1}[а-яё]{3,23}|[a-z]{1}[a-z]{3,23})$/
+        const re = /^[а-яёa-z0-9\s]{1,}$/i
         if (!re.test(String(e.target.value).toLowerCase())) {
             setSubmodelError('')
         } else {
@@ -110,7 +110,6 @@ function Mainform() {
     ])
 
     const submitData = async (e) => {
-        debugger
         try {
             e.preventDefault()
             let request = await fetch('http://localhost:5000/telegram', {
@@ -186,27 +185,11 @@ function Mainform() {
                 <div className="main-form-container-right">
                     <div className="form-container">
                         <h3>Get Started!</h3>
-                        {yearDirty && yearError && (
-                            <div className="ERROR">{yearError}</div>
-                        )}
-                        {markDirty && markError && (
-                            <div className="ERROR">{markError}</div>
-                        )}
-                        {modelDirty && modelError && (
-                            <div className="ERROR">{modelError}</div>
-                        )}
-                        {submodelDirty && submodelError && (
-                            <div className="ERROR">{submodelError}</div>
-                        )}
-                        {zipcodeDirty && zipcodeError && (
-                            <div className="ERROR">{zipcodeError}</div>
-                        )}
-                        {phoneDirty && phoneError && (
-                            <div className="ERROR">{phoneError}</div>
-                        )}
+
                         <form className="main-offer-form">
                             <div className="input-group">
                                 <label htmlFor="input">Year</label>
+
                                 <input
                                     type="text"
                                     placeholder="Manufacture year"
@@ -215,9 +198,13 @@ function Mainform() {
                                     onBlur={(e) => blurHandler(e)}
                                     name="year"
                                 />
+                                {yearDirty && yearError && (
+                                    <div className="ERROR">{yearError}</div>
+                                )}
                             </div>
                             <div className="input-group">
                                 <label htmlFor="input2">make</label>
+
                                 <input
                                     type="text"
                                     placeholder="Car make"
@@ -226,9 +213,13 @@ function Mainform() {
                                     onBlur={(e) => blurHandler(e)}
                                     name="make"
                                 />
+                                {markDirty && markError && (
+                                    <div className="ERROR">{markError}</div>
+                                )}
                             </div>
                             <div className="input-group">
                                 <label htmlFor="input3">Model</label>
+
                                 <input
                                     type="text"
                                     placeholder="Your car model"
@@ -237,11 +228,15 @@ function Mainform() {
                                     onBlur={(e) => blurHandler(e)}
                                     name="model"
                                 />
+                                {modelDirty && modelError && (
+                                    <div className="ERROR">{modelError}</div>
+                                )}
                             </div>
                             <div className="input-group">
                                 <label htmlFor="input4">
                                     Submodel (If known)
                                 </label>
+
                                 <input
                                     type="text"
                                     placeholder="Your car submodel"
@@ -250,9 +245,13 @@ function Mainform() {
                                     onBlur={(e) => blurHandler(e)}
                                     name="submodel"
                                 />
+                                {submodelDirty && submodelError && (
+                                    <div className="ERROR">{submodelError}</div>
+                                )}
                             </div>
                             <div className="input-group">
                                 <label htmlFor="input5">Zip code</label>
+
                                 <input
                                     type="text"
                                     placeholder="Your address zip code"
@@ -261,9 +260,13 @@ function Mainform() {
                                     onBlur={(e) => blurHandler(e)}
                                     name="zipcode"
                                 />
+                                {zipcodeDirty && zipcodeError && (
+                                    <div className="ERROR">{zipcodeError}</div>
+                                )}
                             </div>
                             <div className="input-group">
                                 <label htmlFor="input6">Phone number</label>
+
                                 <input
                                     type="text"
                                     placeholder="Your phone number"
@@ -272,18 +275,24 @@ function Mainform() {
                                     onBlur={(e) => blurHandler(e)}
                                     name="phone"
                                 />
+                                {phoneDirty && phoneError && (
+                                    <label className="ERROR">
+                                        {phoneError}
+                                    </label>
+                                )}
                             </div>
                             <div className="input-group-button">
                                 <div className="text-inside">
                                     <h5>
                                         By submitting, you acknowledge our{' '}
-                                        <a href="/policy">privacy policy</a>
+                                        <a href="/privacy">privacy policy</a>
                                     </h5>
                                 </div>
-
+                                {/* <Link to="/getoffer"> */}
                                 <button
                                     disabled={!formValid}
                                     type="submit"
+                                    href="/getoffer"
                                     onClick={submitData}
                                     className="submit-btn"
                                 >

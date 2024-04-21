@@ -44,3 +44,12 @@
         height: fit-content;
     }
 }
+
+@media (max-width: 460px) {
+    .Footer {
+        width: 100%;
+    }
+    .Footer a {
+        font-size: 20px;
+    }
+}

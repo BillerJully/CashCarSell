@@ -24,7 +24,7 @@ function Feedback() {
 
     const changeName = (e) => {
         setFeedBackName(e.target.value)
-        const re = /^([а-я]{1}[а-яё]{3,23}|[a-z]{1}[a-z]{3,23})$/
+        const re = /^(?:[а-яёa-z]\s?){1,}$/
         if (!re.test(String(e.target.value).toLowerCase())) {
             setFeedBackNameError('Некоректное имя')
         } else {
@@ -89,7 +89,7 @@ function Feedback() {
             <div className="feedback-block">
                 <div className="phone-feedback">
                     <img src={phoneLogo} alt="" />
-                    <a href="">+1 (720) 354-1390</a>
+                    <a href="tel:+17203541390">+1 (720) 354-1390</a>
                 </div>
                 <div className="feedback-text">
                     <h3>
