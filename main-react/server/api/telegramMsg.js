@@ -4,12 +4,28 @@ module.exports.sendMsg = (req, res) => {
     let reqBody = req.body
 
     let fields = [
-        '<b>Year</b>: ' + reqBody.year,
-        '<b>Mark</b>: ' + reqBody.mark,
-        '<b>Model</b>: ' + reqBody.model,
-        '<b>SubModel</b>: ' + reqBody.submodel,
-        '<b>Zip code</b>: ' + reqBody.zipcode,
-        '<b>Phone</b>: ' + reqBody.phone,
+        `${reqBody.year?.length ? '<b>Year</b>: ' + reqBody.year : ''}`,
+        `${reqBody.mark?.length ? '<b>Mark</b>: ' + reqBody.mark : ''}`,
+        `${reqBody.model?.length ? '<b>Model</b>: ' + reqBody.model : ''}`,
+        `${
+            reqBody.submodel?.length
+                ? '<b>Submodel</b>: ' + reqBody.submodel
+                : ''
+        }`,
+        `${
+            reqBody.zipcode?.length ? '<b>Zipcode</b>: ' + reqBody.zipcode : ''
+        }`,
+        `${reqBody.phone?.length ? '<b>Phone</b>: ' + reqBody.phone : ''}`,
+        `${
+            reqBody.feedBackName?.length
+                ? '<b>FeedBackName</b>: ' + reqBody.feedBackName
+                : ''
+        }`,
+        `${
+            reqBody.feedBackPhone?.length
+                ? '<b>FeedBackPhone</b>: ' + reqBody.feedBackPhone
+                : ''
+        }`,
     ]
 
     let message = ''
@@ -22,9 +38,9 @@ module.exports.sendMsg = (req, res) => {
     http.post(
         `https://api.telegram.org/bot${config.telegram.token}/sendMessage?chat_id=${config.telegram.chat}&parse_mode=html&text=${message}`,
         function (err, response, body) {
-            console.log('error:', err);
-            console.log('response:', response);
-            console.log('body:', body);
+            console.log('error:', err)
+            console.log('response:', response)
+            console.log('body:', body)
 
             if (response.statusCode >= 400) {
                 res.status(400).json({
@@ -40,5 +56,5 @@ module.exports.sendMsg = (req, res) => {
         }
     )
 
-    return res;
+    return res
 }

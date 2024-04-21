@@ -54,7 +54,7 @@
         max-width: 500px;
         padding-left: 10px;
         padding-right: 10px;
-        width: 430px;
+        width: 420px;
         font-size: 14px;
     }
     .yellow-container {
@@ -63,5 +63,23 @@
 
     .yellow-box h3 {
         font-size: 20px;
+    }
+}
+
+@media (max-width: 390px) {
+    .yellow-box p {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 340px;
+        font-size: 14px;
+    }
+
+    .yellow-box h3 {
+        font-size: 20px;
+        width: 340px;
+    }
+    .yellow-box h3:last-child {
+        font-size: 18px;
+        width: 340px;
     }
 }
