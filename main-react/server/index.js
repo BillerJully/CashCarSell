@@ -14,26 +14,30 @@ const whitelist = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
+    console.log(`Request from ${origin}`)
+    if (origin && whitelist.indexOf(origin) !== -1) {
+      console.log(`Request allowed`)
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
+      console.log(`Request denied`)
     }
   }
 };
+
 
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use('/', index)
 
 const start = () => {
-    try {
-        app.listen(PORT, () => {
-            console.log(`Server online on ${PORT} port`)
-        })
-    } catch (err) {
-        console.log(err)
-    }
+  try {
+    app.listen(PORT, () => {
+      console.log(`Server online on ${PORT} port`)
+    })
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 start()
