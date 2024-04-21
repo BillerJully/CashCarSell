@@ -83,6 +83,11 @@
     width: 45%;
 }
 
+.input-group-button h5 {
+    font-size: 12px;
+    font-weight: 500;
+}
+
 .input-group-button a {
     text-decoration: underline;
 }
@@ -198,5 +203,25 @@
     }
     .input-group-button div {
         width: 100%;
+    }
+
+    .description-container h1 {
+        color: white;
+        font-size: 32px;
+        font-weight: 500;
+        width: 380px;
+    }
+
+    .description-container h3 {
+        color: white;
+        font-size: 13px;
+        font-weight: 500;
+        width: 380px;
+    }
+    .description-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }

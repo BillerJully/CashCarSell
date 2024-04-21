@@ -17,20 +17,20 @@ function Mainform() {
     const [zipcodeDirty, setZipcodeDirty] = useState(false)
     const [phoneDirty, setPhoneDirty] = useState(false)
 
-    const [yearError, setYearError] = useState('year can`t be empty')
-    const [markError, setMarkError] = useState('mark can`t be empty')
-    const [modelError, setModelError] = useState('model can`t be empty')
+    const [yearError, setYearError] = useState('Year can`t be empty')
+    const [markError, setMarkError] = useState('Mark can`t be empty')
+    const [modelError, setModelError] = useState('Model can`t be empty')
     const [submodelError, setSubmodelError] = useState(
-        'submodel can`t be empty'
+        'Submodel can`t be empty'
     )
-    const [zipcodeError, setZipcodeError] = useState('zipcode can`t be empty')
-    const [phoneError, setPhoneError] = useState('phone can`t be empty')
+    const [zipcodeError, setZipcodeError] = useState('Zipcode can`t be empty')
+    const [phoneError, setPhoneError] = useState('Phone can`t be empty')
 
     const changeYear = (e) => {
         setYear(e.target.value)
         const re = /^(19|20)\d{2}$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setYearError('Year invalid')
+            setYearError('Error in year input')
         } else {
             setYearError('')
         }
@@ -40,7 +40,7 @@ function Mainform() {
         setMark(e.target.value)
         const re = /^([а-я]{1}[а-яё]{3,23}|[a-z]{1}[a-z]{3,23})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setMarkError('Mark invalid')
+            setMarkError('Error in make input')
         } else {
             setMarkError('')
         }
@@ -50,7 +50,7 @@ function Mainform() {
         setModel(e.target.value)
         const re = /^([а-я]{1}[а-яё]{3,23}|[a-z]{1}[a-z]{3,23})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setModelError('Model invalid')
+            setModelError('Error in model input')
         } else {
             setModelError('')
         }
@@ -60,7 +60,7 @@ function Mainform() {
         setSubmodel(e.target.value)
         const re = /^([а-я]{1}[а-яё]{3,23}|[a-z]{1}[a-z]{3,23})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setSubmodelError('Submodel invalid')
+            setSubmodelError('')
         } else {
             setSubmodelError('')
         }
@@ -70,7 +70,7 @@ function Mainform() {
         setZipcode(e.target.value)
         const re = /^\d{5}(?:[-\s]\d{4})?$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setZipcodeError('Zip invalid')
+            setZipcodeError('Error in ZipCode')
         } else {
             setZipcodeError('')
         }
@@ -78,9 +78,9 @@ function Mainform() {
 
     const changePhone = (e) => {
         setPhone(e.target.value)
-        const re = /^(8|\+7)?-?(\d{3})-?(\d{3})-?(\d{2})-?(\d{2})$/
+        const re = /^(\+1)?-?\(?(\d{3})\)?-?(\d{3})-?(\d{4})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setPhoneError('Phone invalid')
+            setPhoneError('Error in phone input')
         } else {
             setPhoneError('')
         }
@@ -110,10 +110,10 @@ function Mainform() {
     ])
 
     const submitData = async (e) => {
+        debugger
         try {
             e.preventDefault()
-            let url = "http://192.168.1.226:5000";
-            let request = await fetch(`${url}/telegram`, {
+            let request = await fetch('http://localhost:5000/telegram', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ function Mainform() {
                 throw new Error(`${request.status} : ${request.statusText}`)
         } catch (error) {
             console.log(
-                `Failed to send request: ${error.message}`
+                `Возникла ошибка при отправке запроса: ${error.message}`
             )
         }
     }
@@ -162,9 +162,6 @@ function Mainform() {
                 break
             case 'model':
                 setModelDirty(true)
-                break
-            case 'submodel':
-                setSubmodelDirty(true)
                 break
             case 'zipcode':
                 setZipcodeDirty(true)

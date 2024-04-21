@@ -21,7 +21,10 @@
     padding-inline: 50px;
     min-height: fit-content;
 }
+.logo-car {
+    height: 60px;
 
+}
 .header-logo {
     font-weight: 600;
     font-size: 30px;
@@ -107,5 +110,22 @@
     .header {
         padding-top: 60px;
         box-sizing: border-box;
+    }
+ 
+}
+
+
+@media (max-width: 456px) {
+    .header-logo {
+        /* display: none; */
+    }
+    .header-menu {
+        display: none;
+    }
+    .header-donate {
+        display: none;
+    }
+    .our-phone {
+        font-size: 32px
     }
 }

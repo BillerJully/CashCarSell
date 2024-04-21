@@ -14,7 +14,7 @@ function Feedback() {
 
     const changePhone = (e) => {
         setFeedBackPhone(e.target.value)
-        const re = /^(8|\+7)?-?(\d{3})-?(\d{3})-?(\d{2})-?(\d{2})$/
+        const re = /^(\+1)?-?\(?(\d{3})\)?-?(\d{3})-?(\d{4})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
             setFeedBackPhoneError('Некоректный номер телефона')
         } else {

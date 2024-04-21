@@ -54,7 +54,7 @@
         max-width: 500px;
         padding-left: 10px;
         padding-right: 10px;
-        width: 430px;
+        width: 420px;
         font-size: 14px;
     }
     .yellow-container {
@@ -65,3 +65,23 @@
         font-size: 20px;
     }
 }
+
+@media (max-width: 360px) {
+    .yellow-box {
+        max-width: fit-content;
+    }
+    .yellow-box p {
+  
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 340px;
+        font-size: 14px;
+    }
+
+    .yellow-box h3 {
+        font-size: 20px;
+    }
+    .yellow-box h3:last-child {
+        font-size: 18px;
+    }
+} 
