@@ -10,7 +10,7 @@ function UpdatedHeader() {
             <div className="header-container">
                 <div className="header-logo">
                     <a href="/" className="header-logo-link">
-                        ColoradoQuickCashCars
+                        Colorado Car Buyers
                     </a>
                 </div>
                 <nav className="header-nav">
