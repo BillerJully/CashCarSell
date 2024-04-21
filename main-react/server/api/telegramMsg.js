@@ -25,18 +25,17 @@ module.exports.sendMsg = (req, res) => {
             console.log('error:', err);
             console.log('response:', response);
             console.log('body:', body);
-            
-            if (response.statusCode === 200) {
+
+            if (response.statusCode >= 400) {
+                res.status(400).json({
+                    status: 'error',
+                    message: 'some error',
+                })
+            } else {
                 res.status(200).json({
                     status: 'ok',
                     message: 'Successful send!',
                 })
-            if (response.statusCode !== 200) {
-                    res.status(400).json({
-                        status: 'error',
-                        message: 'some error',
-                    })
-                }
             }
         }
     )
