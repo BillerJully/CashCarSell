@@ -1,9 +1,10 @@
-import './Mainform.css'
+import '../mainform/Mainform.css'
 import { toast } from 'react-toastify'
 import { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
-function Mainform() {
+function NewForm() {
     const navigate = useNavigate()
 
     const [year, setYear] = useState('')
@@ -207,7 +208,7 @@ function Mainform() {
                                 )}
                             </div>
                             <div className="input-group">
-                                <label htmlFor="input2">Make</label>
+                                <label htmlFor="input2">make</label>
 
                                 <input
                                     type="text"
@@ -296,7 +297,7 @@ function Mainform() {
                                 <button
                                     disabled={!formValid}
                                     type="submit"
-                                    href="/getoffer"
+                                    // href="/getoffer"
                                     onClick={submitData}
                                     className="submit-btn"
                                 >
@@ -311,4 +312,4 @@ function Mainform() {
     )
 }
 
-export default Mainform
+export default NewForm

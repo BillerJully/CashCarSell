@@ -26,6 +26,31 @@ module.exports.sendMsg = (req, res) => {
                 ? '<b>FeedBackPhone</b>: ' + reqBody.feedBackPhone
                 : ''
         }`,
+        `${
+            reqBody.q1?.length
+                ? '<b>Do you own the car?</b>: ' + reqBody.q1
+                : ''
+        }`,
+        `${
+            reqBody.q2?.length
+                ? '<b>Do you have a title?</b>: ' + reqBody.q2
+                : ''
+        }`,
+        `${
+            reqBody.q3?.length
+                ? '<b>Can you start and drive your car?</b>: ' + reqBody.q3
+                : ''
+        }`,
+        `${
+            reqBody.q4?.length
+                ? '<b>What`s the mileage on your car?</b>: ' + reqBody.q4
+                : ''
+        }`,
+        `${
+            reqBody.q5?.length
+                ? '<b>Does your car have exterior damage?</b>: ' + reqBody.q5
+                : ''
+        }`,
     ]
 
     let message = ''

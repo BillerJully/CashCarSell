@@ -32,12 +32,12 @@ function Privacy() {
                 support needs.
             </p>
 
-            <h3>California Online Privacy Protection Act Compliance</h3>
+            <h3>The Colorado Privacy Act</h3>
             <p>
                 Because we value your privacy we have taken the necessary
-                precautions to be in compliance with the California Online
-                Privacy Protection Act. We therefore will not distribute your
-                personal information to outside parties without your consent.
+                precautions to be in compliance with the Colorado Privacy
+                Protection Act. We therefore will not distribute your personal
+                information to outside parties without your consent.
             </p>
 
             <h3>Children's Online Privacy Protection Act Compliance</h3>
