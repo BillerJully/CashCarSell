@@ -81,7 +81,7 @@ function Mainform() {
 
     const changePhone = (e) => {
         setPhone(e.target.value)
-        const re = /^(\+1)?-?\(?(\d{3})\)?-?(\d{3})-?(\d{4})$/
+        const re = /^((1)[\-\s]?)?(\(?\d{3}\)?[\-\s]?)?[\d\-\s]{10}$/
         if (!re.test(String(e.target.value).toLowerCase())) {
             setPhoneError('Error in phone input')
         } else {
