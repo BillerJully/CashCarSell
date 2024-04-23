@@ -3,7 +3,7 @@ import './ExtraForm.css'
 import ModalForm from '../../modalextraform/ModalForm'
 
 function ExtraForm() {
-    const [modalActive, setModalActive] = useState(true)
+    const [modalActive, setModalActive] = useState(false)
     const [formData, setFormData] = useState({
         q1: '',
         q2: '',
