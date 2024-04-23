@@ -19,7 +19,7 @@ function ModalForm({ active, setActive }) {
                         onClick={() => setActive(false)}
                     ></div>
                     <div className="modal-text">
-                        <h4>Thank you! We will call you soon!</h4>
+                        <h4>Thank you! We will contact you soon!</h4>
                         <button
                             className="modal-btn"
                             onClick={() => navigate('/')}
