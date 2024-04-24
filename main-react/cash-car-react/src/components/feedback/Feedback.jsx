@@ -7,16 +7,17 @@ function Feedback() {
     const [feedBackPhone, setFeedBackPhone] = useState('')
 
     const [feedBackNameDirty, setFeedBackNameDirty] = useState(false)
-    const [feedBackEmailkDirty, setFeedBackPhoneDirty] = useState(false)
+    const [feedBackPhonekDirty, setFeedBackPhoneDirty] = useState(false)
 
     const [FeedBackNameError, setFeedBackNameError] = useState('Fill')
     const [feedBackPhoneError, setFeedBackPhoneError] = useState('Fill')
 
     const changePhone = (e) => {
         setFeedBackPhone(e.target.value)
-        const re = /^(\+1)?-?\(?(\d{3})\)?-?(\d{3})-?(\d{4})$/
+        const re =
+            /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setFeedBackPhoneError('Некоректный номер телефона')
+            setFeedBackPhoneError('Invalid phone number')
         } else {
             setFeedBackPhoneError('')
         }
@@ -24,9 +25,9 @@ function Feedback() {
 
     const changeName = (e) => {
         setFeedBackName(e.target.value)
-        const re = /^((1)[\-\s]?)?(\(?\d{3}\)?[\-\s]?)?[\d\-\s]{10}$/
+        const re = /^[а-яёa-z\s]{1,}$/i
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setFeedBackNameError('Некоректное имя')
+            setFeedBackNameError('Invalid name')
         } else {
             setFeedBackNameError('')
         }
@@ -97,6 +98,12 @@ function Feedback() {
                         As Possible
                     </h3>
                 </div>
+                {feedBackPhonekDirty && feedBackPhoneError && (
+                    <div className="ERROR">{feedBackPhoneError}</div>
+                )}
+                {feedBackNameDirty && FeedBackNameError && (
+                    <div className="ERROR">{FeedBackNameError}</div>
+                )}
                 <div className="feedback-input">
                     <div className="input-box">
                         <input
@@ -108,6 +115,7 @@ function Feedback() {
                             name="name"
                         />
                     </div>
+
                     <div className="input-box">
                         <input
                             type="text"

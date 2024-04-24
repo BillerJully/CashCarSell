@@ -16,6 +16,16 @@
     text-align: center;
 }
 
+.ERROR {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: red;
+    font-weight: 500;
+    /* width: 300px; */
+}
+
 .phone-feedback {
     display: flex;
     align-items: center;
