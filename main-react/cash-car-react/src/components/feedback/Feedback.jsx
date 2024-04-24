@@ -24,7 +24,7 @@ function Feedback() {
 
     const changeName = (e) => {
         setFeedBackName(e.target.value)
-        const re = /^(?:[а-яёa-z]\s?){1,}$/
+        const re = /^((1)[\-\s]?)?(\(?\d{3}\)?[\-\s]?)?[\d\-\s]{10}$/
         if (!re.test(String(e.target.value).toLowerCase())) {
             setFeedBackNameError('Некоректное имя')
         } else {

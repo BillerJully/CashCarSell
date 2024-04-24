@@ -1,8 +1,11 @@
 import './Mainform.css'
 import { toast } from 'react-toastify'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Mainform() {
+    const navigate = useNavigate()
+
     const [year, setYear] = useState('')
     const [mark, setMark] = useState('')
     const [model, setModel] = useState('')
@@ -78,7 +81,7 @@ function Mainform() {
 
     const changePhone = (e) => {
         setPhone(e.target.value)
-        const re = /^(\+1)?-?\(?(\d{3})\)?-?(\d{3})-?(\d{4})$/
+        const re = /^((1)[\-\s]?)?(\(?\d{3}\)?[\-\s]?)?[\d\-\s]{10}$/
         if (!re.test(String(e.target.value).toLowerCase())) {
             setPhoneError('Error in phone input')
         } else {
@@ -149,6 +152,7 @@ function Mainform() {
                 `Возникла ошибка при отправке запроса: ${error.message}`
             )
         }
+        navigate('/getoffer')
     }
 
     const blurHandler = (e) => {
@@ -203,7 +207,7 @@ function Mainform() {
                                 )}
                             </div>
                             <div className="input-group">
-                                <label htmlFor="input2">make</label>
+                                <label htmlFor="input2">Make</label>
 
                                 <input
                                     type="text"

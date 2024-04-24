@@ -10,7 +10,6 @@ function App() {
     return (
         <div className="App">
             <UpdatedHeader />
-            {/* <Header /> */}
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<MainPage />} />
