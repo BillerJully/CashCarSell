@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  react:
+    build: ./cash-car-react/Dockerfile.prod
+    depends_on:
+      - express
+    volumes:
+      - ssl-certs:/etc/nginx/certs
+    ports:
+      - '80:80'
+      - '443:443'
+    restart: always
+
+  express:
+    build: ./server
+    ports:
+      - '5000:5000'
+    restart: always
+
+volumes:
+  - ssl-certs:
