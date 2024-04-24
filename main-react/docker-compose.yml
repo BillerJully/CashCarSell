@@ -7,8 +7,10 @@ services:
       - express
     ports:
       - '80:80'
+    restart: always
 
   express:
     build: ./server
     ports:
       - '5000:5000'
+    restart: always
