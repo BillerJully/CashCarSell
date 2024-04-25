@@ -6,7 +6,8 @@ services:
     depends_on:
       - express
     volumes:
-      - ssl-certs:/etc/nginx/certs
+      - /etc/letsencrypt/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
+      - /etc/letsencrypt/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
     ports:
       - '80:80'
       - '443:443'
@@ -17,6 +18,3 @@ services:
     ports:
       - '5000:5000'
     restart: always
-
-volumes:
-  - ssl-certs:
