@@ -72,6 +72,10 @@
     justify-content: center;
 }
 
+.modal-text h4 {
+    font-weight: 500;
+}
+
 .modal-btn {
     display: block;
     height: 60px;
@@ -80,8 +84,8 @@
     color: rgb(19, 2, 2);
     border: none;
     border-radius: 8px;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s;
 }
