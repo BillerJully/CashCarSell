@@ -1,0 +1,123 @@
+.new-main-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 400px;
+}
+
+.input-second-line {
+    display: inline-flex;
+    justify-content: center;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-all-line {
+    position: relative;
+}
+
+.input-all-line input {
+    background: #fff;
+    padding: 10px;
+    /* закруглим края у поля ввода */
+    border-radius: 10px;
+    width: 410px;
+    border: 1px solid black;
+}
+
+.input-all-line label {
+    position: absolute;
+    /* смещение относительно родительского элемента 10px вверх от верхнего края и   10px влево */
+    top: -10px;
+    left: 10px;
+    background: #fff;
+    padding: 0 5px;
+}
+
+.input-first-line,
+.input-last-line {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-line {
+    position: relative;
+}
+.between-or {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.divider {
+    flex: 1;
+    height: 1px;
+    background-color: rgb(102, 100, 100);
+    margin: 0 10px;
+    margin-bottom: 25px;
+}
+
+.input-line input,
+.input-line select {
+    background: #fff;
+    padding: 10px;
+    /* закруглим края у поля ввода */
+    border-radius: 10px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.input-line label {
+    position: absolute;
+    /* смещение относительно родительского элемента 10px вверх от верхнего края и   10px влево */
+    top: -10px;
+    left: 10px;
+    background: #fff;
+    padding: 0 5px;
+}
+
+@media (max-width: 490px) {
+    .new-main-form {
+        display: block;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .new-main-form .input-line {
+        /* width: 100%;
+        width: 100px; */
+        margin-bottom: 10px;
+    }
+    .new-main-form .input-all-line {
+        width: 100%;
+        width: 100px;
+        margin-bottom: 10px;
+    }
+
+    .input-all-line input {
+        width: 320px;
+        margin-bottom: 10px;
+    }
+    .input-line input,
+    .input-line select {
+        width: 320px;
+        margin-bottom: 20px;
+    }
+    .input-first-line,
+    .input-last-line {
+        display: block;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .input-second-line {
+        display: flex;
+        gap: 10px;
+    }
+}
