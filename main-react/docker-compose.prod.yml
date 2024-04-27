@@ -2,7 +2,9 @@ version: '3'
 
 services:
   react:
-    build: ./cash-car-react/Dockerfile.prod
+    build:
+      context: ./cash-car-react
+      dockerfile: Dockerfile.prod
     depends_on:
       - express
     volumes:
