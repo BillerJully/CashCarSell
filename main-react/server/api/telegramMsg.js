@@ -4,6 +4,9 @@ module.exports.sendMsg = (req, res) => {
     let reqBody = req.body
 
     let fields = [
+        `${reqBody.plate?.length ? '<b>Plate</b>: ' + reqBody.plate : ''}`,
+        `${reqBody.state?.length ? '<b>State</b>: ' + reqBody.state : ''}`,
+        `${reqBody.vin?.length ? '<b>VIN</b>: ' + reqBody.vin : ''}`,
         `${reqBody.year?.length ? '<b>Year</b>: ' + reqBody.year : ''}`,
         `${reqBody.mark?.length ? '<b>Mark</b>: ' + reqBody.mark : ''}`,
         `${reqBody.model?.length ? '<b>Model</b>: ' + reqBody.model : ''}`,
@@ -55,7 +58,9 @@ module.exports.sendMsg = (req, res) => {
 
     let message = ''
     fields.forEach((field) => {
-        message += field + '\n'
+        if (field !== '') {
+            message += field + '\n'
+        }
     })
 
     message = encodeURI(message)

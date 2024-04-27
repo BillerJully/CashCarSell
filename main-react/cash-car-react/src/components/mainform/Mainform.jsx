@@ -293,7 +293,6 @@ function Mainform() {
                                         <a href="/privacy">privacy policy</a>
                                     </h5>
                                 </div>
-                                {/* <Link to="/getoffer"> */}
                                 <button
                                     disabled={!formValid}
                                     type="submit"
