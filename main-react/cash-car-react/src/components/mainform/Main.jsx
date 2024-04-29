@@ -96,19 +96,23 @@ function Mainform() {
     const submitData = async (e) => {
         try {
             e.preventDefault()
-            let request = await fetch('http://localhost:5000/telegram', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    plate: plate,
-                    vin: vin,
-                    state: state,
-                    zipcode: zipcode,
-                    phone: phone,
-                }),
-            })
+            // let request = await fetch('http://localhost:5000/telegram', {
+            let request = await fetch(
+                `${process.env.REACT_APP_HOST_IP_ADDRESS}/api/telegram`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        plate: plate,
+                        vin: vin,
+                        state: state,
+                        zipcode: zipcode,
+                        phone: phone,
+                    }),
+                }
+            )
             // .then((response) => response.json())
             // .then((result) => alert(result.response.msg))
             setPlate('')

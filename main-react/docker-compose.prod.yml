@@ -1,22 +1,24 @@
 version: '3'
 
 services:
-  react:
-    build:
-      context: ./cash-car-react
-      dockerfile: Dockerfile.prod
-    depends_on:
-      - express
-    volumes:
-      - /etc/letsencrypt/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
-      - /etc/letsencrypt/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
-    ports:
-      - '80:80'
-      - '443:443'
-    restart: always
+    react:
+        build:
+            context: ./cash-car-react
+            dockerfile: Dockerfile.prod
+            args:
+                REACT_APP_HOST_IP_ADDRESS: ${IP_ADDRESS}
+        depends_on:
+            - express
+        volumes:
+            - /etc/letsencrypt/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
+            - /etc/letsencrypt/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
+        ports:
+            - '80:80'
+            - '443:443'
+        restart: always
 
-  express:
-    build: ./server
-    ports:
-      - '5000:5000'
-    restart: always
+    express:
+        build: ./server
+        ports:
+            - '5000:5000'
+        restart: always
