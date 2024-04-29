@@ -46,19 +46,23 @@ function ExtraForm() {
 
             const { q1, q2, q3, q4, q5 } = formData
 
-            const response = await fetch('http://localhost:5000/telegram', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    q1: q1,
-                    q2: q2,
-                    q3: q3,
-                    q4: q4,
-                    q5: q5,
-                }),
-            })
+            // const response = await fetch('http://localhost:5000/telegram', {
+            const response = await fetch(
+                `${process.env.REACT_APP_HOST_IP_ADDRESS}/api/telegram`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        q1: q1,
+                        q2: q2,
+                        q3: q3,
+                        q4: q4,
+                        q5: q5,
+                    }),
+                }
+            )
             setFormData({
                 q1: '',
                 q2: '',

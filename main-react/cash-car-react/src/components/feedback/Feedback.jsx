@@ -1,6 +1,7 @@
 import './Feedback.css'
 import phoneLogo from '../../staticfiles/feedback/call.png'
 import { useEffect, useState } from 'react'
+import InputMask from 'react-input-mask'
 
 function Feedback() {
     const [feedBackName, setFeedBackName] = useState('')
@@ -43,19 +44,22 @@ function Feedback() {
     }, [feedBackPhone, feedBackName])
 
     const submitData = async (e) => {
-        debugger
         try {
             e.preventDefault()
-            let request = await fetch('http://localhost:5000/telegram', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    feedBackName: feedBackName,
-                    feedBackPhone: feedBackPhone,
-                }),
-            })
+            // let request = await fetch('http://localhost:5000/telegram',
+            let request = await fetch(
+                `${process.env.REACT_APP_HOST_IP_ADDRESS}/api/telegram`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        feedBackName: feedBackName,
+                        feedBackPhone: feedBackPhone,
+                    }),
+                }
+            )
             // .then((response) => response.json())
             // .then((result) => alert(result.response.msg))
             setFeedBackName('')
@@ -117,14 +121,24 @@ function Feedback() {
                     </div>
 
                     <div className="input-box">
-                        <input
+                        <InputMask
+                            type="text"
+                            placeholder="Your phone number"
+                            value={feedBackPhone}
+                            onChange={changePhone}
+                            onBlur={(e) => blurHandler(e)}
+                            name="phone"
+                            mask="+1 (999) 999-9999"
+                            maskChar="_"
+                        />
+                        {/* <input
                             type="text"
                             placeholder="Write your phone"
                             value={feedBackPhone}
                             onChange={changePhone}
                             onBlur={(e) => blurHandler(e)}
                             name="phone"
-                        />
+                        /> */}
                     </div>
                     <button
                         className="feedback-submit"
