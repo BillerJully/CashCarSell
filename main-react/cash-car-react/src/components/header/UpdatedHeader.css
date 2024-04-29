@@ -11,6 +11,9 @@
     height: 80px;
     flex-shrink: 1;
 }
+.car-log {
+    height: 40px;
+}
 
 .header-logo {
     display: flex;
@@ -21,6 +24,10 @@
 .header-logo-link {
     font-size: 30px;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     color: #383838;
 }
 

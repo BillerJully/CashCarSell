@@ -10,7 +10,12 @@ function UpdatedHeader() {
             <div className="header-container">
                 <div className="header-logo">
                     <a href="/" className="header-logo-link">
-                        Colorado Car Buyers
+                        <img
+                            src="./car-log.png"
+                            alt="logo-img"
+                            className="car-log"
+                        />
+                        Rocky Mountain Car Buyers
                     </a>
                 </div>
                 <nav className="header-nav">

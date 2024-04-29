@@ -3,6 +3,7 @@ import './simple-form/SimpleForm.css'
 import { toast } from 'react-toastify'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import InputMask from 'react-input-mask'
 
 function Mainform() {
     const navigate = useNavigate()
@@ -19,28 +20,32 @@ function Mainform() {
     const [zipcodeDirty, setZipcodeDirty] = useState(false)
     const [phoneDirty, setPhoneDirty] = useState(false)
 
-    const [plateError, setPlateError] = useState('Plate can`t be empty')
-    const [vinError, setVinError] = useState('vin can`t be empty')
+    const [plateError, setPlateError] = useState('Incorrect plate number')
+    const [vinError, setVinError] = useState('Incorrect VIN number')
     const [stateError, setStateError] = useState('State can`t be empty')
     const [zipcodeError, setZipcodeError] = useState('Zipcode can`t be empty')
     const [phoneError, setPhoneError] = useState('Phone can`t be empty')
 
     const changeplate = (e) => {
         setPlate(e.target.value)
-        const re = /^[\w.-]{7}$/
+        const re = /^[\w.-]{1,7}$/
         if (!re.test(String(e.target.value).toLowerCase())) {
             setPlateError('Error in plate input')
         } else {
             setPlateError('')
+            setVinError('')
         }
     }
 
     const changevin = (e) => {
         setVin(e.target.value)
-
-        setVinError('Error in vin input')
-
-        setVinError('')
+        const re = /^[\w\d]{1,17}$/
+        if (!re.test(String(e.target.value).toLowerCase())) {
+            setVinError('Incorrect VIN number')
+        } else {
+            setVinError('')
+            setPlateError('')
+        }
     }
 
     const changestate = (e) => {
@@ -278,7 +283,7 @@ function Mainform() {
                                         placeholder="Your car vin number"
                                         value={vin}
                                         onChange={changevin}
-                                        onBlur={(e) => blurHandler(e)}
+                                        // onBlur={(e) => blurHandler(e)}
                                         name="vin"
                                     />
                                     {vinDirty && vinError && (
@@ -290,7 +295,7 @@ function Mainform() {
                             </div>
                             <div className="input-last-line">
                                 <div className="input-line">
-                                    <label htmlFor="input5">Zip code</label>
+                                    <label htmlFor="input5">Zip code*</label>
                                     <input
                                         type="text"
                                         placeholder="Your address zip code"
@@ -306,15 +311,27 @@ function Mainform() {
                                     )}
                                 </div>
                                 <div className="input-line">
-                                    <label htmlFor="input6">Phone number</label>
-                                    <input
+                                    <label htmlFor="input6">
+                                        Phone number*
+                                    </label>
+                                    <InputMask
                                         type="text"
                                         placeholder="Your phone number"
                                         value={phone}
                                         onChange={changePhone}
                                         onBlur={(e) => blurHandler(e)}
                                         name="phone"
+                                        mask="+1 (999) 999-9999"
+                                        maskChar="_"
                                     />
+                                    {/* <input
+                                        type="text"
+                                        placeholder="Your phone number"
+                                        value={phone}
+                                        onChange={changePhone}
+                                        onBlur={(e) => blurHandler(e)}
+                                        name="phone"
+                                    /> */}
                                     {phoneDirty && phoneError && (
                                         <label className="ERROR">
                                             {phoneError}
