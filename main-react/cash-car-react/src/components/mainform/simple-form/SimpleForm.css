@@ -5,7 +5,17 @@
     justify-content: center;
     max-width: 400px;
 }
+label.red-input {
+    color: red;
+}
 
+.errors-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: red;
+}
 .input-second-line {
     display: inline-flex;
     justify-content: center;
