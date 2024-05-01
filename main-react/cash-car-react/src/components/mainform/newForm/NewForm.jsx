@@ -57,7 +57,6 @@ const Form = () => {
                 }
                 const response = await fetch(
                     `${process.env.REACT_APP_HOST_IP_ADDRESS}/api/telegram`,
-                    // 'http://localhost:5000/telegram',
                     {
                         method: 'POST',
                         headers: {
