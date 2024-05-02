@@ -8,13 +8,16 @@ function Benefits() {
                 <div className="benefit-block yel">
                     <h4>Cash For Cars</h4>
                     <p>
-                        Sell your car at ColoradoQuickCashCar and get paid in
-                        cash in just 1 call
+                        Sell your car at Rocky Mountain Car Buyers and get paid
+                        in cash in just 1 call
                     </p>
                 </div>
                 <div className="benefit-block">
                     <h4>We Buy Cars in Colorado</h4>
-                    <p>ColoradoQuickCashCars buys cars only in Colorado</p>
+                    <p>
+                        For this day Rocky Mountain Car Buyers buys cars only in
+                        Colorado
+                    </p>
                 </div>
                 <div className="benefit-block yel">
                     <h4>Get Paid On The Spot</h4>
