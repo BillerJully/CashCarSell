@@ -5,7 +5,7 @@ function Footer() {
         <section className="Footer-main">
             <div className="Footer">
                 <div className="footer-log">
-                    <a href="/">ColoradoQuickCashCars</a>
+                    <a href="/">RockyMountainCarBuyers.com</a>
                 </div>
                 <div className="footer-info">
                     {/* <strong>© All rights reserved</strong> */}
