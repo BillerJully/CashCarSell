@@ -26,6 +26,12 @@
     /* width: 300px; */
 }
 
+.input-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
 .phone-feedback {
     display: flex;
     align-items: center;
@@ -43,6 +49,18 @@
 
 .feedback-text {
     margin-bottom: 15px;
+}
+
+.input-box label.red-input {
+    color: red;
+}
+
+.input-box label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+    padding: 0 10px;
 }
 
 .feedback-text h3 {
