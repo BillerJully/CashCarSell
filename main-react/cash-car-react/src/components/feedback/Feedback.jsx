@@ -2,23 +2,28 @@ import './Feedback.css'
 import phoneLogo from '../../staticfiles/feedback/call.png'
 import { useEffect, useState } from 'react'
 import InputMask from 'react-input-mask'
+import FeedModal from './feedbackModal/FeedModal'
 
 function Feedback() {
+    const [feedbackModal, setFeedbackModal] = useState(false)
     const [feedBackName, setFeedBackName] = useState('')
     const [feedBackPhone, setFeedBackPhone] = useState('')
 
     const [feedBackNameDirty, setFeedBackNameDirty] = useState(false)
     const [feedBackPhonekDirty, setFeedBackPhoneDirty] = useState(false)
 
-    const [FeedBackNameError, setFeedBackNameError] = useState('Fill')
-    const [feedBackPhoneError, setFeedBackPhoneError] = useState('Fill')
+    const [FeedBackNameError, setFeedBackNameError] =
+        useState('Enter your name')
+    const [feedBackPhoneError, setFeedBackPhoneError] = useState(
+        'Enter your phone number'
+    )
 
     const changePhone = (e) => {
         setFeedBackPhone(e.target.value)
         const re =
             /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})$/
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setFeedBackPhoneError('Invalid phone number')
+            setFeedBackPhoneError('Incorrect phone number')
         } else {
             setFeedBackPhoneError('')
         }
@@ -28,7 +33,7 @@ function Feedback() {
         setFeedBackName(e.target.value)
         const re = /^[а-яёa-z\s]{1,}$/i
         if (!re.test(String(e.target.value).toLowerCase())) {
-            setFeedBackNameError('Invalid name')
+            setFeedBackNameError('Unacceptable symbols')
         } else {
             setFeedBackNameError('')
         }
@@ -60,12 +65,11 @@ function Feedback() {
                     }),
                 }
             )
-            // .then((response) => response.json())
-            // .then((result) => alert(result.response.msg))
             setFeedBackName('')
             setFeedBackPhone('')
             setFeedBackNameDirty(false)
             setFeedBackPhoneDirty(false)
+            setFeedbackModal(true)
 
             if (!request.ok)
                 throw new Error(`${request.status} : ${request.statusText}`)
@@ -102,14 +106,14 @@ function Feedback() {
                         As Possible
                     </h3>
                 </div>
-                {feedBackPhonekDirty && feedBackPhoneError && (
-                    <div className="ERROR">{feedBackPhoneError}</div>
-                )}
-                {feedBackNameDirty && FeedBackNameError && (
-                    <div className="ERROR">{FeedBackNameError}</div>
-                )}
+
                 <div className="feedback-input">
                     <div className="input-box">
+                        {feedBackNameDirty && FeedBackNameError && (
+                            <label className="red-input">
+                                {FeedBackNameError}
+                            </label>
+                        )}
                         <input
                             type="text"
                             placeholder="Write your name"
@@ -121,6 +125,11 @@ function Feedback() {
                     </div>
 
                     <div className="input-box">
+                        {feedBackPhonekDirty && feedBackPhoneError && (
+                            <label className="red-input">
+                                {feedBackPhoneError}
+                            </label>
+                        )}
                         <InputMask
                             type="text"
                             placeholder="Your phone number"
@@ -131,14 +140,6 @@ function Feedback() {
                             mask="+1 (999) 999-9999"
                             maskChar="_"
                         />
-                        {/* <input
-                            type="text"
-                            placeholder="Write your phone"
-                            value={feedBackPhone}
-                            onChange={changePhone}
-                            onBlur={(e) => blurHandler(e)}
-                            name="phone"
-                        /> */}
                     </div>
                     <button
                         className="feedback-submit"
@@ -148,6 +149,10 @@ function Feedback() {
                     >
                         Call Me
                     </button>
+                    <FeedModal
+                        feedbackActive={feedbackModal}
+                        setFeedbackActive={setFeedbackModal}
+                    />
                 </div>
             </div>
         </section>
